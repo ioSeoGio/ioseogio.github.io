@@ -1,0 +1,287 @@
+/* GLOBAL */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    font-size: 84pt;
+
+    background-color: white;
+}
+
+body
+{
+    box-sizing: border-box;
+
+    background-color: white;
+    background-image: url('paper_texture_2048x1536.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-size: 100%;
+}
+
+em
+{
+    font-style: normal;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+:focus
+{
+    outline: 0;
+    outline-offset: 0;
+}
+
+.positioner
+{
+    width: 90%;
+    max-width: 2400px;
+    margin: 0 auto;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar-button
+{
+    display: none;
+}
+
+::-webkit-scrollbar
+{
+    margin-right: 5px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: lightgray;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: gray;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+}
+
+/* === HEADER === */
+header
+{
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0); //Костыль, иначе фон сползает вниз.
+
+    h1
+    {
+        font-family: 'ZURITA';
+        font-size: 2rem;
+        line-height: 2rem;
+        line-height: 100%;
+
+        margin-top: 4%;
+        margin-bottom: 4%;
+
+        text-decoration: uppercase;
+    }
+}
+/* === MAIN === */
+main
+{
+    font-size: 0;
+
+    text-align: center;
+
+    .box
+    {
+        position: relative;
+
+        display: inline-block;
+
+        box-sizing: border-box;
+        width: 30%;
+        margin-bottom: 5%;
+
+        cursor: pointer;
+        text-align: center;
+
+        box-shadow: -1px 1px 5px black;
+
+
+        &:nth-child(2n)
+        {
+            margin-left: 5%;
+
+            margin-right: 5%;
+        }
+
+        &:last-child
+        {
+            margin-right: 0;
+        }
+
+        &:hover,
+        &:hover img
+        {
+            transition: .4s;
+        }
+
+        img
+        {
+            width: 100%;
+            height: auto;
+        }
+
+        h2
+        {
+            font-family: 'ZURITA';
+            font-size: .3rem;
+
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: inline-block;
+
+            height: .3rem;
+            margin: auto auto;
+
+            opacity: 0;
+            color: white;
+        }
+
+        &:hover h2
+        {
+            transition: .3s;
+            transition-delay: .2s;
+
+            opacity: 1;
+        }
+
+        &::before,
+        &::after
+        {
+            position: absolute;
+            z-index: 998;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+            height: 0;
+
+            content: '1';
+
+            opacity: .6;
+            background-color: black;
+        }
+
+        &::before
+        {
+            top: 0;
+        }
+
+        &::after
+        {
+            bottom: 0;
+        }
+
+        &:hover
+        {
+            transition: .6s;
+
+            box-shadow: none;
+        }
+
+        &:hover::before,
+        &:hover::after
+        {
+            height: 50%;
+
+            transition: .4s;
+        }
+    }
+}
+
+/* === FOOTER === */
+footer
+{
+    font-family: 'ZURITA';
+    font-size: .478em;
+
+    padding-bottom: 3%;
+
+    text-align: center;
+}
+
+@media screen and (min-width: 1900px)
+{
+    html
+    {
+        font-size: 170pt;
+    }
+}
+
+@media screen and (min-width: 1400px)
+{
+    html
+    {
+        font-size: 120pt;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 850px)
+{
+    html
+    {
+        font-size: 64pt;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    html
+    {
+        font-size: 48pt;
+    }
+
+    main
+    {
+        width: 65% !important;
+
+        .box
+        {
+            width: 100%;
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+
+            h2
+            {
+                opacity: 1;
+            }
+
+            &::before,
+            &::after
+            {
+                display: none;
+            }
+
+            &:hover
+            {
+                box-shadow: -1px 1px 5px black;
+            }
+
+            *:not(.title-of-box)
+            {
+                filter: brightness(50%);
+            }
+        }
+    }
+}

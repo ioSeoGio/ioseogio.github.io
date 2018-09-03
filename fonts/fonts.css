@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'ZURITA';
+  src: url('ZURITA.eot?#iefix') format('embedded-opentype'),  url('ZURITA.otf')  format('opentype'),
+	     url('ZURITA.woff') format('woff'), url('ZURITA.ttf')  format('truetype'), url('ZURITA.svg#ZURITA') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
